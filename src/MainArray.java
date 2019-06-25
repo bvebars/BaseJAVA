@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLOutput;
 
 /**
  * Interactive test for ArrayStorage implementation
@@ -67,5 +68,6 @@ public class MainArray {
             }
         }
         System.out.println("----------------------------");
+        System.out.println("Проверка");
     }
 }
