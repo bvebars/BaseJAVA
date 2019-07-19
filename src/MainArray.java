@@ -6,6 +6,11 @@ import java.sql.SQLOutput;
 /**
  * Interactive test for ArrayStorage implementation
  * (just run, no need to understand)
+ *
+ * ArrayStorage - Массив хранения
+ * uuid - Индивидуальный номер резюме
+ * trim - Removes spaces (Удаляет пробелы)
+ * r - новый объект резюме
  */
 public class MainArray {
     private final static ArrayStorage ARRAY_STORAGE = new ArrayStorage();
@@ -68,6 +73,5 @@ public class MainArray {
             }
         }
         System.out.println("----------------------------");
-        System.out.println("Проверка");
     }
 }
