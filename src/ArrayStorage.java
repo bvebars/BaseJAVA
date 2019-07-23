@@ -5,34 +5,42 @@ import java.util.Arrays;
  */
 public class ArrayStorage {
     Resume[] storage = new Resume[10000];
-    Resume[] saveUuid = new Resume[1];
+    private int incSave = 1;
+    private int size = size();
 
     void clear() {
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null) storage[i] = null;
+        for (int i = 0; i < size; i++) {
+            if (storage[i] != null){
+                storage[i] = null;
+            }
         }
     }
 
     void save(Resume r) {
-        storage[saveUuid.length - 1] = r;
-        saveUuid = Arrays.copyOf(storage,saveUuid.length + 1);
+        storage[incSave - 1] = r;
+        storage = Arrays.copyOf(storage,incSave + 1);
+        incSave++;
     }
 
     Resume get(String uuid) {
-        for (Resume resume : storage) {
-            if (storage[1].uuid.equals(uuid)) {
-                System.out.println(resume);
-                return resume;
+    size = size();
+        for (int i = 0; i < size; i++) {
+            if (storage[i] != null) {
+                if (storage[i].uuid.equals(uuid)) {
+                    System.out.println(storage[i]);
+                    return storage[i];
+                }
             }
+
         }
         return null;
     }
 
     void delete(String uuid) {
-        Resume[] renameUuid = new Resume[size()];
+        Resume[] renameUuid = new Resume[3];
         int incUuid = 0;
         //Поиск и изменение ячейки на null
-        for (int i = 0; i < storage.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
 
                 if (storage[i].uuid.equals(uuid)) {
@@ -41,7 +49,7 @@ public class ArrayStorage {
             }
         }
         //Создание нового массива без дырок, ограниченной длинны
-        for (int i = 0; i < storage.length; i++) {
+        for (int i = 0; i < size; i++) {
             if(storage[i] != null) {
                 renameUuid[incUuid] = storage[i];
                 incUuid++;
@@ -55,20 +63,18 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-
-        Resume [] arr = new Resume[size()];
-        System.out.println( "размер: " + size());
-
-        for (int i = 0; i < storage.length; i++) {
+    size = size();
+        Resume [] completedResumes = new Resume[size];
+        for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
-                Arrays.copyOf(arr, arr.length + 1);
-                arr[i] = storage[i];
+                Arrays.copyOf(completedResumes, completedResumes.length + 1);
+                completedResumes[i] = storage[i];
             }
         }
-        return arr;
+        return completedResumes;
     }
 
-    int size() {
+     int size() {
         int amountResume = 0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
