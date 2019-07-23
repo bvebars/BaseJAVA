@@ -10,7 +10,7 @@ public class ArrayStorage {
 
     void clear() {
         for (int i = 0; i < size; i++) {
-            if (storage[i] != null){
+            if (storage[i] != null) {
                 storage[i] = null;
             }
         }
@@ -18,12 +18,12 @@ public class ArrayStorage {
 
     void save(Resume r) {
         storage[incSave - 1] = r;
-        storage = Arrays.copyOf(storage,incSave + 1);
+        storage = Arrays.copyOf(storage, incSave + 1);
         incSave++;
     }
 
     Resume get(String uuid) {
-    size = size();
+        size = size();
         for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
                 if (storage[i].uuid.equals(uuid)) {
@@ -50,7 +50,7 @@ public class ArrayStorage {
         }
         //Создание нового массива без дырок, ограниченной длинны
         for (int i = 0; i < size; i++) {
-            if(storage[i] != null) {
+            if (storage[i] != null) {
                 renameUuid[incUuid] = storage[i];
                 incUuid++;
             }
@@ -63,8 +63,8 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-    size = size();
-        Resume [] completedResumes = new Resume[size];
+        size = size();
+        Resume[] completedResumes = new Resume[size];
         for (int i = 0; i < size; i++) {
             if (storage[i] != null) {
                 Arrays.copyOf(completedResumes, completedResumes.length + 1);
@@ -74,13 +74,13 @@ public class ArrayStorage {
         return completedResumes;
     }
 
-     int size() {
+    int size() {
         int amountResume = 0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
                 amountResume++;
             }
         }
-       return amountResume;
+        return amountResume;
     }
 }
