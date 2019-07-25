@@ -10,14 +10,13 @@ public class ArrayStorage {
     void clear() {
         for (int i = 0; i < size; i++) {
             storage[i] = null;
-            size = 0;
         }
+        size = 0;
     }
 
     void save(Resume r) {
         storage[size] = r;
         size++;
-        storage = Arrays.copyOf(storage, size + 1);
     }
 
     Resume get(String uuid) {
@@ -42,7 +41,6 @@ public class ArrayStorage {
             }
         }
         size--;
-        storage = Arrays.copyOf(storage, size);
         storage = Arrays.copyOf(storage, 10000);
     }
 
@@ -52,10 +50,8 @@ public class ArrayStorage {
     Resume[] getAll() {
         Resume[] completedResumes = new Resume[size];
         for (int i = 0; i < size; i++) {
-            if(storage[i] != null) {
-                Arrays.copyOf(completedResumes, completedResumes.length + 1);
-                completedResumes[i] = storage[i];
-            }
+            Arrays.copyOf(completedResumes, completedResumes.length + 1);
+            completedResumes[i] = storage[i];
         }
         return completedResumes;
     }
