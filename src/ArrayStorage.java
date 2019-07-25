@@ -41,7 +41,6 @@ public class ArrayStorage {
             }
         }
         size--;
-        storage = Arrays.copyOf(storage, 10000);
     }
 
     /**
@@ -50,7 +49,6 @@ public class ArrayStorage {
     Resume[] getAll() {
         Resume[] completedResumes = new Resume[size];
         for (int i = 0; i < size; i++) {
-            Arrays.copyOf(completedResumes, completedResumes.length + 1);
             completedResumes[i] = storage[i];
         }
         return completedResumes;
