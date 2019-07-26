@@ -29,13 +29,17 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0, j = 0; i < size; i++, j++) {
+        int i = 0;
+        size--;
+        for (int j = 0; i < size; i++, j++) {
             if (storage[i].uuid.equals(uuid)) {
-                size--;
                 j++;
             }
             storage[i] = storage[j];
         }
+        System.out.println(i);
+        storage[i] = null;
+        System.out.println(Arrays.toString(storage));
     }
 
     /**
