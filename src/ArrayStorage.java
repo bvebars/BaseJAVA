@@ -30,16 +30,18 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         int i = 0;
-        size--;
+        boolean recordInArray = false;
         for (int j = 0; i < size; i++, j++) {
             if (storage[i].uuid.equals(uuid)) {
+                size--;
                 j++;
+                recordInArray = true;
             }
-            storage[i] = storage[j];
+            if (recordInArray) {
+                storage[i] = storage[j];
+            }
         }
-        System.out.println(i);
         storage[i] = null;
-        System.out.println(Arrays.toString(storage));
     }
 
     /**
