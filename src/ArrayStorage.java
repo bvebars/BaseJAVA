@@ -32,11 +32,10 @@ public class ArrayStorage {
     int numberOfDeletedResume = 0;
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) { // Резюме которое надо удалить
-                size--; // уменьшаем длинну
+                size--; // уменьшаем длину
                 numberOfDeletedResume = i;
             }
         }
-
         for (int i = numberOfDeletedResume; i < size;) {
             storage[i] = storage[++i];
         }
