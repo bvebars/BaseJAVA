@@ -36,15 +36,11 @@ public class ArrayStorage {
                 numberOfDeletedResume = i;
             }
         }
-        System.out.println("Size: " + size);
-        System.out.println("numberOfDeletedResume: " + numberOfDeletedResume);
-
         for (int i = numberOfDeletedResume; i < size; i++) {
             System.out.println(": " + i);
             storage[i] = storage[i + 1];
         }
     }
-
         /**
          * @return array, contains only Resumes in storage (without null)
          */
