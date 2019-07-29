@@ -37,7 +37,6 @@ public class ArrayStorage {
             }
         }
         for (int i = numberOfDeletedResume; i < size; i++) {
-            System.out.println(": " + i);
             storage[i] = storage[i + 1];
         }
     }
