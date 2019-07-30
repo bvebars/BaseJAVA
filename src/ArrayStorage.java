@@ -30,15 +30,15 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         int numberOfDeletedResume = 0;
-        boolean resemeDelete = false;
+        boolean resumeDelete = false;
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) { // Резюме которое надо удалить
                 size--; // уменьшаем длину
                 numberOfDeletedResume = i;
-                resemeDelete = true;
+                resumeDelete = true;
             }
         }
-        if (resemeDelete) {
+        if (resumeDelete) {
             for (int i = numberOfDeletedResume; i < size; i++) {
                 storage[i] = storage[i + 1];
             }
